@@ -2,12 +2,6 @@ import React from 'react';
 
 export default class Accordion extends React.Component {
 
-  this.props.sections.map(section => )
-
-  actions = () {
-    
-  }
-
   render() {
     console.log(this.props.sections.title);
     return (
