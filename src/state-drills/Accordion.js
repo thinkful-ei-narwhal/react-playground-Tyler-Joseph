@@ -1,7 +1,9 @@
 import React from 'react';
 
+
 export default class Accordion extends React.Component {
   store = [...this.props.sections]
+  
   state = {
     lastClickedButton: null
   }
