@@ -1,21 +1,33 @@
 import React from 'react';
 
 export default class Accordion extends React.Component {
+  store = [...this.props.sections]
+  state = {
+    lastClickedButton: null
+  }
 
-  this.props.sections.map(section => )
+  handleClick = (index) => {
+    this.setState({
+      lastClickedButton: index
+    })
+  }
 
-  actions = () {
-    
+
+  actions = (data, index, lastClickedButton) => {
+    return ( 
+        <li key={index}>
+          <button name={index} onClick={() => this.handleClick(index)}>{data.title}</button>
+          {(lastClickedButton === index) && <p>{data.content}</p>}
+        </li>
+    )
   }
 
   render() {
-    console.log(this.props.sections.title);
+    const { lastClickedButton } = this.state
     return (
       <ul>
-        <li>
-          <button>Hello</button>
-        </li>
+      {this.store.map((x, i) => this.actions(x, i, lastClickedButton))}
       </ul>
     )
   }
-};
+}
